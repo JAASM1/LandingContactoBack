@@ -1,4 +1,5 @@
 import Contact from "../models/Contact.js";
+import User from "../models/User.js";
 import { body, validationResult } from "express-validator";
 import { transporter } from "../Mail/mail.js";
 
@@ -49,7 +50,18 @@ export const createContact = async (req, res) => {
 
     if (contact) {
       try {
-        const adminEmails = process.env.ADMINS.split(",");
+        // Obtener todos los correos de usuarios de la base de datos
+        const users = await User.find({}, 'email');
+        const adminEmails = users.map(user => user.email).filter(email => email);
+        
+        if (adminEmails.length === 0) {
+          console.warn('No se encontraron usuarios para enviar notificaciones');
+          return res.status(201).json({
+            success: true,
+            message: "Solicitud enviada exitosamente",
+            data: { id: contact._id },
+          });
+        }
 
         await transporter.sendMail({
           from: `"CRM Notifier" <${process.env.GMAIL_USER}>`,
