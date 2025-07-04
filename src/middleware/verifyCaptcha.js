@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 
-const secretKey = "6LdZaGsrAAAAAFMEexjTLkoS_DPcuUN6n4ESs9vY"; // Asegúrate de tenerlo en tu .env
+const secretKey = "6Lc51HYrAAAAABbe6VnFI4xXcxDu_0Gh_TLpbxbn";
 
 export const verifyCaptcha = async (req, res, next) => {
   const token = req.body.tokenCaptcha;
