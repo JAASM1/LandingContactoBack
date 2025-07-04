@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(helmet());
 app.use(cors({
-  origin: process.env.FRONT_URL || "http://localhost:5173",
+  origin: process.env.FRONT_URL || "https://landing-contacto-au5k.vercel.app",
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
