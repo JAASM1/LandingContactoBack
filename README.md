@@ -10,17 +10,21 @@ Backend para gestionar solicitudes de contacto.
 - **Rate limiting** anti-spam
 - **Seguridad básica** con Helmet y CORS
 - **Prevención de duplicados**
+- **Validación de Captcha**
+- **JWT**
+- **Nodemailer con Gmail**
 
 ## 📋 Requisitos
 
 - **Cluster de MongoAtlas**
-- **npm o yarn**
+- **npm**
+- **Node.js**
 
 ## 🛠️ Instalación
 
-1. **Navega a la ruta del archivo 'back'**
+1. **Clona el repositorio**
 ```bash
-cd back
+git clone URL _del _repo
 ```
 
 2. **Instalar dependencias**
